@@ -1,0 +1,16 @@
+version: '2.16'
+services:
+  web:
+    container_name: express-test
+    restart: always
+    build: .
+    ports:
+      - '8000:8080'
+    depends_on:
+      - mongodb
+  mongodb:
+    container_name: mongo-test
+    restart: always
+    image: mongo
+    ports: 
+      - '27017:27017'
